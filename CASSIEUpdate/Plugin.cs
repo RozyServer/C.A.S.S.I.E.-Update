@@ -26,6 +26,7 @@ namespace CASSIEUpdate
             Map.AnnouncingScpTermination += _eventHandlers.OnAnnouncingScpTermination;
             Map.AnnouncingNtfEntrance += _eventHandlers.OnAnnouncingNtfEntrance;
             Log.Info($"{Name} v.{Version} enabled");
+            Instance = this;
             base.OnEnabled();
         }
 
@@ -36,6 +37,7 @@ namespace CASSIEUpdate
             Map.AnnouncingScpTermination -= _eventHandlers.OnAnnouncingScpTermination;
             Map.AnnouncingNtfEntrance -= _eventHandlers.OnAnnouncingNtfEntrance;
             Log.Info($"{Name} v.{Version} disabled");
+            Instance = null;
             base.OnDisabled();
         }
 
